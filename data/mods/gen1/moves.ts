@@ -82,7 +82,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (this.effectState.duration === 1) {
 					this.add('-end', pokemon, 'Bide');
 					if (!this.effectState.totalDamage) {
-						this.debug("Bide failed because no damage was taken");
+						this.debug("Bide failed due to 0 damage taken");
 						this.add('-fail', pokemon);
 						return false;
 					}
@@ -401,13 +401,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	haze: {
 		inherit: true,
 		onHit(target, source) {
-			this.add('-activate', target, 'move: Haze');
-			this.add('-clearallboost', '[silent]');
+			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
 				pokemon.clearBoosts();
 
 				if (pokemon !== source) {
-					pokemon.cureStatus(true);
+					// Clears the status from the opponent
+					pokemon.setStatus('');
 				}
 				if (pokemon.status === 'tox') {
 					pokemon.setStatus('psn');
@@ -417,7 +417,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						pokemon.volatiles[id].counter = 0;
 					} else {
 						pokemon.removeVolatile(id);
-						this.add('-end', pokemon, id, '[silent]');
+						this.add('-end', pokemon, id);
 					}
 				}
 			}
@@ -536,28 +536,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 			this.actions.useMove(foe.lastMove.id, pokemon);
-		},
-	},
-	mist: {
-		inherit: true,
-		condition: {
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Mist');
-			},
-			onBoost(boost, target, source, effect) {
-				if (effect.effectType === 'Move' && effect.category !== 'Status') return;
-				if (source && target !== source) {
-					let showMsg = false;
-					let i: BoostID;
-					for (i in boost) {
-						if (boost[i]! < 0) {
-							delete boost[i];
-							showMsg = true;
-						}
-					}
-					if (showMsg) this.add('-activate', target, 'move: Mist');
-				}
-			},
 		},
 	},
 	nightshade: {

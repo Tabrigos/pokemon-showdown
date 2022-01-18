@@ -380,7 +380,6 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		isLead: boolean,
 	): string | undefined {
 		if (species.requiredItem) return species.requiredItem;
-		if (species.requiredItems) return this.sample(species.requiredItems);
 		if (species.name === 'Farfetch\u2019d') return 'Stick';
 		if (species.name === 'Marowak') return 'Thick Club';
 		if (species.name === 'Shedinja' || species.name === 'Smeargle') return 'Focus Sash';
@@ -515,7 +514,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 			forme = this.sample([species.name].concat(species.cosmeticFormes));
 		}
 
-		const movePool = (species.randomBattleMoves || Object.keys(this.dex.species.getLearnset(species.id)!)).slice();
+		const movePool = (species.randomBattleMoves || Object.keys(this.dex.data.Learnsets[species.id].learnset!)).slice();
 		const rejectedPool: string[] = [];
 		const moves = new Set<string>();
 		let ability = '';
@@ -631,12 +630,11 @@ export class RandomGen4Teams extends RandomGen5Teams {
 					cull = true;
 				}
 
-				const runEnforcementChecker = (checkerName: string) => {
-					if (!this.moveEnforcementCheckers[checkerName]) return false;
-					return this.moveEnforcementCheckers[checkerName](
+				const runEnforcementChecker = (checkerName: string) => (
+					this.moveEnforcementCheckers[checkerName]?.(
 						movePool, moves, abilities, types, counter, species as Species, teamDetails
-					);
-				};
+					)
+				);
 
 				const moveIsRejectable = (
 					!move.weather &&

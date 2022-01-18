@@ -38,9 +38,9 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 	frz: {
 		inherit: true,
-		onDamagingHit(damage, target, source, move) {
+		onHit(target, source, move) {
 			// don't count Hidden Power or Weather Ball as Fire-type
-			if (this.dex.moves.get(move.id).type === 'Fire' && move.category !== 'Status') {
+			if (move.thawsTarget || this.dex.moves.get(move.id).type === 'Fire' && move.category !== 'Status') {
 				target.cureStatus();
 			}
 		},

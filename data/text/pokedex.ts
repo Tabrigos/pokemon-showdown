@@ -3560,6 +3560,9 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	plasmanta: {
 		name: "Plasmanta",
 	},
+	seraphim: {
+		name: "Seraphim",
+	},
 	floatoy: {
 		name: "Floatoy",
 	},

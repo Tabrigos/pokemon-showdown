@@ -6,12 +6,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 	par: {
 		inherit: true,
-		onModifySpe(spe, pokemon) {
-			if (!pokemon.hasAbility('quickfeet')) {
-				return this.chainModify(0.25);
-			}
-			return spe;
-		},
 		onBeforeMove(pokemon) {
 			if (!pokemon.hasAbility('magicguard') && this.randomChance(1, 4)) {
 				this.add('cant', pokemon, 'par');
@@ -111,13 +105,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onResidualOrder: 10,
 		onResidualSubOrder: 9,
-	},
-	choicelock: {
-		inherit: true,
-		onStart(pokemon) {
-			if (!pokemon.lastMove) return false;
-			this.effectState.move = pokemon.lastMove.id;
-		},
 	},
 	futuremove: {
 		inherit: true,

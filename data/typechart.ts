@@ -1,4 +1,26 @@
 export const TypeChart: {[k: string]: TypeData} = {
+	god: {
+		damageTaken: {
+			Bug: 2,
+			Dark: 2,
+			Dragon: 2,
+			Electric: 2,
+			Fairy: 2,
+			Fighting: 2,
+			Fire: 2,
+			Flying: 2,
+			Ghost: 2,
+			Grass: 2,
+			Ground: 2,
+			Ice: 2,
+			Normal: 2,
+			Poison: 2,
+			Psychic: 2,
+			Rock: 2,
+			Steel: 2,
+			Water: 2,
+		},
+	},
 	bug: {
 		damageTaken: {
 			Bug: 0,

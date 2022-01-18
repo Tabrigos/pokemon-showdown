@@ -16839,7 +16839,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["God"],
 		gender: "N",
 		baseStats: {hp: 255, atk: 255, def: 255, spa: 255, spd: 255, spe: 255},
-		abilities: {0: "Color Change"},
+		abilities: {0: "Marvel Scale"},
 		heightm: 2.5,
 		weightkg: 215,
 		color: "Purple",

@@ -6286,7 +6286,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	seraphim: {
 		isNonstandard: "CAP",
-		tier: "CAP",
+		tier: "AG",
 	},
 	floatoy: {
 		isNonstandard: "CAP",

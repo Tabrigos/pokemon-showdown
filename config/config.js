@@ -422,6 +422,7 @@ exports.noguestsecurity = false;
  * @type {{[userid: string]: string}}
  */
 exports.customavatars = {
+	'Tabrigos':	''
 	// 'userid': 'customavatar.png'
 };
 

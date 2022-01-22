@@ -1,70 +1,34 @@
-/config/*
-!/config/formats.ts
-/logs/*
-/test/modlogs
-/test/replays/*.html
-/node_modules
-/eslint-cache
-/server/chat-plugins/private
-/server/chat-plugins/private.js
-/server/chat-plugins/*-private.js
-npm-debug.log
-.eslintcache
-.eslintcache-no-types
-package-lock.json
-/tools/set-import/sets
-databases/*.db*
-*.o
-*.o.dSYM
-# Typescript build artifacts
-.*-dist/
-tools/set-import/importer.js
-tools/modlog/converter.js
-*.tsbuildinfo
-**/sourceMaps
-
-# visual studio live share
-.vs
-
-# boilerplate #
-###############
-
+/sprites/
+/audio/
+/config/
+/index.php
+/index.html
+/preactalpha.html
+/crossprotocol.html
+/data/*
+node_modules/
+eslint-cache/
 .DS_Store
+Thumbs.db
+npm-debug.log
+package-lock.json
+/vendor/
 
-# editor temp files
-*~
-.idea/
+/js/server/
+/js/*.js.map
+/js/battle*.js
+/js/panel*.js
+/js/replay-embed.js
+/js/client-main.js
+/js/client-core.js
+/js/client-connection.js
 
-tmp/**/*
-*.lock
-*.DS_Store
-*.swp
-*.out
-*.pyc
-*.pyo
-.installed.cfg
+/replays/caches/
+/replays/replay-config.inc.php
+/replays/theme/wrapper.inc.php
 
-downloads
-dist
-
-# egg related
-develop-eggs
-*.egg-info
-*.egg
-*.EGG
-*.EGG-INFO
-src/*.egg-info
-eggs
-fake-eggs
-
-# django
-local_settings.py
-
-# SCM
-.hg
-.bzr
-.svn
-
-pip-log.txt
-# redis dumps
-*.rdb
+/website/.well-known/
+/website/.pages-cached/
+/website/files/
+/website/images/
+/website/ads.txt

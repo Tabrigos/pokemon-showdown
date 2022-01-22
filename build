@@ -1,22 +1,47 @@
 #!/usr/bin/env node
+"use strict";
 
-if (!require('assert').strict) {
-	console.error("We require Node.js version 10 or later; you're using " + process.version);
+try {
+	// technically this was introduced in Node 11, but we'll ask for the most recent LTS with it to be safe
+	[].flatMap(x => x);
+} catch (e) {
+	console.log("We require Node.js version 12 or later; you're using " + process.version);
 	process.exit(1);
 }
 
-var execSync = require('child_process').execSync;
+var child_process = require('child_process');
 var fs = require('fs');
+var decl = ['--decl', 'decl'].includes(process.argv[2]);
+var force = decl || ['--force', 'force', '--full', 'full'].includes(process.argv[2]);
 
 process.chdir(__dirname);
 
-try {
-	require.resolve('@babel/core');
-} catch (e) {
-	console.log('Installing dependencies...');
-	execSync('npm install', {stdio: 'inherit'});
+function shell(cmd) {
+	child_process.execSync(cmd, {stdio: 'inherit'});
 }
 
+// Check to make sure the most recently added or updated dependency is installed at the correct version
+try {
+	var sucraseVersion = require('sucrase').getVersion().split('.');
+	if (
+		parseInt(sucraseVersion[0]) < 3 ||
+		(parseInt(sucraseVersion[0]) === 3 && parseInt(sucraseVersion[1]) < 15)
+	) {
+		throw new Error("Sucrase version too old");
+	}
+} catch (e) {
+	console.log('Installing dependencies...');
+	shell('npm install' + (decl ? '' : ' --production'));
+	force = true;
+}
+// for some reason, sucrase won't be requirable until a tick has passed
+// see https://stackoverflow.com/questions/53270058/node-cant-find-certain-modules-after-synchronous-install
+setImmediate(() => {
+	require('./tools/build-utils').transpile(force, decl);
+});
+
+// Make sure config.js exists. If not, copy it over synchronously from
+// config-example.js, since it's needed before we can start the server
 try {
 	require.resolve('./config/config');
 } catch (err) {
@@ -27,51 +52,4 @@ try {
 		'config/config.js',
 		fs.readFileSync('config/config-example.js')
 	);
-}
-
-var options = {cwd: __dirname, stdio: 'inherit'};
-var full = '';
-
-switch (process.argv[2] || '') {
-case 'full':
-	execSync(`node ./build-tools/build-indexes`, options);
-	execSync(`node ./build-tools/build-learnsets`, options);
-	execSync(`node ./build-tools/build-minidex`, options);
-	full = ' full';
-	break;
-case 'indexes':
-	execSync(`node ./build-tools/build-indexes`, options);
-	break;
-case 'learnsets':
-	execSync(`node ./build-tools/build-learnsets`, options);
-	break;
-case 'minidex':
-case 'sprites':
-	execSync(`node ./build-tools/build-minidex`, options);
-	break;
-case 'sets':
-	execSync(`node ./build-tools/build-sets`, options);
-	break;
-case 'replays':
-	execSync(`node ./replays/build`, options);
-	process.exit();
-	break;
-case 'test-only':
-
-	break;
-case '':
-	break;
-default:
-	console.log(`Unrecognized command ${process.argv[2]}`);
-	process.exit();
-	break;
-}
-
-execSync(`node ./build-tools/update` + full, options);
-
-if (full) {
-	try {
-		fs.statSync('./replays/build');
-		execSync(`node ./replays/build`, options);
-	} catch (e) {}
 }

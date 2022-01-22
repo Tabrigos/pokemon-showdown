@@ -1,125 +1,99 @@
-Pokémon Showdown Client
+Pokémon Showdown
 ========================================================================
 
-Navigation: [Website][1] | [Server repository][2] | **Client repository** | [Dex repository][3]
+Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex repository][3]
 
   [1]: http://pokemonshowdown.com/
-  [2]: https://github.com/Zarel/Pokemon-Showdown
+  [2]: https://github.com/smogon/pokemon-showdown-client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
+
+[![Build Status](https://github.com/smogon/pokemon-showdown/workflows/Node.js%20CI/badge.svg)](https://github.com/smogon/pokemon-showdown/actions?query=workflow%3A%22Node.js+CI%22)
+[![Dependency Status](https://david-dm.org/smogon/pokemon-showdown.svg)](https://david-dm.org/smogon/pokemon-showdown)
+[![devDependency Status](https://david-dm.org/smogon/pokemon-showdown/dev-status.svg)](https://david-dm.org/smogon/pokemon-showdown?type=dev)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/smogon/pokemon-showdown.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smogon/pokemon-showdown/alerts)
+
 
 Introduction
 ------------------------------------------------------------------------
 
-This is a repository for most of the client code for Pokémon Showdown.
+Pokémon Showdown is many things:
 
-This is what runs `play.pokemonshowdown.com`.
+- A **web site** you can use for Pokémon battling
 
-**WARNING: You probably want the [Pokémon Showdown server][4]**, if you're
-setting up a server.
+  - http://pokemonshowdown.com/
 
-  [4]: https://github.com/Zarel/Pokemon-Showdown
+- A **JavaScript library** for simulating Pokémon battles and getting Pokédex data
 
-Browser support
+  - [sim/README.md](./sim/README.md)
+
+- Some **command-line tools** for simulating Pokémon battles (which can be used in non-JavaScript programs)
+
+  - [COMMANDLINE.md](./COMMANDLINE.md)
+
+- A **web API** for the web site for Pokémon battling
+
+  - [pokemon-showdown-client: WEB-API.md](https://github.com/smogon/pokemon-showdown-client/blob/master/WEB-API.md)
+
+- A **game server** for hosting your own Pokémon Showdown community and game modes
+
+  - [server/README.md](./server/README.md)
+
+Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 8).
+
+
+Documentation quick links
 ------------------------------------------------------------------------
 
-Pokémon Showdown currently supports, in order of preference:
+* [PROTOCOL.md][4] - How the client and server communicate with each other.
+* [sim/SIM-PROTOCOL.md][5] - The part of the protocol used for battles and battle messages.
+* [CONTRIBUTING.md][6] - Useful code standards to understand if you want to send pull requests to PS (not necessary if you're just using the code and not planning to contribute back).
+* [ARCHITECTURE.md][7] - A high-level overview of how the code works.
+* [Bot FAQ][8] - An FAQ compiled by Kaiepi regarding making Pokemon Showdown bots - mainly chatbots and battle bots.
 
- - Chrome
- - Firefox
- - Opera
- - Safari 5+
- - IE11+
- - Chrome/Firefox/Safari for various mobile devices
+  [4]: ./PROTOCOL.md
+  [5]: ./sim/SIM-PROTOCOL.md
+  [6]: ./CONTRIBUTING.md
+  [7]: ./ARCHITECTURE.md
+  [8]: https://gist.github.com/Kaiepi/becc5d0ecd576f5e7733b57b4e3fa97e
 
-Pokémon Showdown is usable, but expect degraded performance and certain features not to work in:
 
- - Safari 4+
- - IE9+
-
-Pokémon Showdown is mostly developed on Chrome, and Chrome or the desktop client is required for certain features like dragging-and-dropping teams from PS to your computer. However, bugs reported on any supported browser will usually be fixed pretty quickly.
-
-Testing
+Community
 ------------------------------------------------------------------------
 
-Client testing now requires a build step! Install the latest Node.js (we
-require v14 or later) and Git, and run `node build` (on Windows) or `./build`
-(on other OSes) to build.
+PS has a built-in chat service. Join our main server to talk to us!
 
-You can make and test client changes simply by building after each change,
-and opening `testclient.html`. This will allow you to test changes to the
-client without setting up your own login server.
+You can also visit the [Pokémon Showdown forums][9] for discussion and help.
 
-### Test keys
+  [9]: https://www.smogon.com/forums/forums/pok%C3%A9mon-showdown.209/
 
-For security reasons, browsers [don't let other websites control PS][5], so
-they can't screw with your account, but it does make it harder to log in on
-the test client.
+If you'd like to contribute to programming and don't know where to start, feel free to check out [Ideas for New Developers][10].
 
-The default hack makes you copy/paste the data instead, but if you're
-refreshing a lot, just add a `config/testclient-key.js` file, with the
-contents:
+  [10]: https://github.com/smogon/pokemon-showdown/issues/2444
 
-    const POKEMON_SHOWDOWN_TESTCLIENT_KEY = 'sid';
-
-Replace `sid` with the contents of your actual PS `sid` cookie. You can quickly
-access this on Chrome through the URL bar:
-
-![image](https://user-images.githubusercontent.com/551184/53414680-def43480-3994-11e9-89d0-c06098c23fa0.png)
-![image](https://user-images.githubusercontent.com/551184/53414760-119e2d00-3995-11e9-80f8-ecd17467310a.png)
-
-(This is the only supported method of logging in on the beta Preact client.)
-
-  [5]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-
-### Other servers
-
-You can connect to an arbitrary server by navigating to
-`testclient.html?~~host:port`. For example, to connect to a server running
-locally on port 8000, you can navigate to `testclient.html?~~localhost:8000`.
-
-**NOTE**: Certain browsers will convert `'?'` to `'%3F'` when reading files off
-of the local filesystem. As a workaround, try using a different browser or
-serving the files locally first (ie. run `npx http-server` from the
-directory this README is in, then navigate in your browser to
-`http://localhost:8080/testclient.html?~~localhost:8000`).
-
-### Limitations
-
-Even with a test key, the following things will fail in `testclient.html`:
-
-+ Registering
-+ Logging into other accounts (you can still switch to other unregistered
-  accounts and back, though)
-
-Everything else can be tested.
-
-Warning
-------------------------------------------------------------------------
-
-This repository is not "batteries included". It does NOT include instructions
-to run a full Pokémon Showdown login server, and we will not provide them.
-Please do not ask for help on this; you will be turned away.
-
-If you make a mistake hosting a login server, your users' passwords can get
-stolen, so we do not want anyone to host a login server unless they can
-figure out how to do it without help.
-
-It also doesn't include several resource files (namely, the `/audio/` and
-`/sprites/` directories) for size reasons.
-
-On the other hand, as long as you don't want to run your own login server,
-this repository contains everything you need to test changes to the client;
-just see the "Testing" section above.
 
 License
 ------------------------------------------------------------------------
 
-Pokémon Showdown's client is distributed under the terms of the [AGPLv3][6].
+Pokémon Showdown's server is distributed under the terms of the [MIT License][11].
 
-The reason is mostly because I don't want low-effort proprietary forks that add bad code that steals everyone's passwords, or something like that.
+  [11]: ./LICENSE
 
-If you're doing _anything_ else other than forking, _especially_ if you want to some client code files in your own open-source project that you want to release under a more permissive license (like, if you want to make your own multiplayer open-source game client for a different game), please ask at `staff@pokemonshowdown.com`. I hold all the copyright to the AGPLv3 parts and can relicense them to MIT for you.
 
-  [6]: http://www.gnu.org/licenses/agpl-3.0.html
+Credits
+------------------------------------------------------------------------
 
-**WARNING:** This is **NOT** the same license as Pokémon Showdown's server.
+Owner
+
+- Guangcong Luo [Zarel] - Development, Design, Sysadmin
+
+Staff
+
+- Andrew Werner [HoeenHero] - Development
+- Annika L. [Annika] - Development
+- Chris Monsanto [chaos] - Development, Sysadmin
+- Leonard Craft III - Research (game mechanics)
+- Mathieu Dias-Martins [Marty-D] - Research (game mechanics), Development
+
+Contributors
+
+- See http://pokemonshowdown.com/credits

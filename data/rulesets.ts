@@ -16,6 +16,36 @@ export const Rulesets: {[k: string]: FormatData} = {
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 		],
 	},
+	
+	monochrome: {
+		effectType: "ValidatorRule",
+		name: "monochrome",
+		desc: "Torneo monochrome lusso",
+		ruleset: [
+			"leggendari", "misteriosi"
+		],
+	},
+
+	
+	leggendari: {
+		effectType: 'ValidatorRule',
+		name: "NoLeggendari!",
+		desc: "tutti i leggendari vengono bannati",
+		banlist: [
+			"Mewtwo", "Moltres", "Articuno", "Zapdos", "Moltres-Galar", "Articuno-Galar", "Zapdos-Galar", "Lugia", "Ho-Oh", "Entei", "Suicune", "Raikou", "Regirock", "Regice", "Registeel", "Latias", "Latios", "Groudon", "Kyogre", "Groudon-Primal", "Kyogre-Primal", "Rayquaza", "Dialga", "Palkia", "Giratina", "Uxie", "Mesprit", "Azelf", "Cresselia", "Heatran", "Regigigas", "Cobalion", "Terrakion", "Virizion", "Tornadus", "Thundurus", "Landorus", "Tornadus-Therian", "Thundurus-Therian", "Landorus-Therian", "Reshiram", "Zekrom", "Kyurem", "Kyurem-White", "Kyurem-Black", "Xerneas", "Yveltal", "Zygarde", "Type: Null", "Silvally", "Tapu Koko", "Tapu Lele", "Tapu Bulu", "Tapu Fini", "Cosmog", "Cosmoem", "Solgaleo", "Lunala", "Necrozma", "Zacian", "Zacian-Base", "Zacian-Crowned", "Zamazenta-Base", "Zamazenta", "Zamazenta-Crowned", "Eternatus", "Kubfu", "Urshifu-Rapid-Strike", "Urshifu-Base", "Urshifu", "Regieleki", "Regidrago", "Glastrier", "Spectrier", "Calyrex", "Calyrex-Ice", "Calyrex-Shadow", "Necrozma-Dawn-Wings", "Necrozma-Dusk-Mane"
+		],
+	},
+	
+
+	misteriosi: {
+		effectType: 'ValidatorRule',
+		name: "NoMisteriosi!",
+		desc: "tutti i misteriosi vengono bannati",
+		banlist: ["Nihilego", "Buzzwole", "Pheromosa", "Xurkitree", "Celesteela", "Kartana", "Guzzlord", "Poipole", "Naganadel", "Stakataka", "Blacephalon", "Mew", "Celebi", "Jirachi", "Deoxys", "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus", "Victini", "Keldeo", "Meloetta", "Genesect", "Diancie", "Hoopa", "Hoopa-Unbound", "Volcanion", "Magearna", "Marshadow", "Zeraora", "Meltan", "Melmetal", "Zarude"
+		],
+	},
+	
+
 	standardnext: {
 		effectType: 'ValidatorRule',
 		name: 'Standard NEXT',

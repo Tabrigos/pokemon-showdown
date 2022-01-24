@@ -19,6 +19,47 @@ The column value will be ignored for repeat sections.
 
 export const Formats: FormatList = [
 
+
+
+
+
+	{
+		section: "BudewInn Custom Formate",
+	},
+	{
+		name: "[Gen 8] Monochrome Cup",
+		desc: "test",
+		gameType: 'doubles',
+		mod: "gen8",
+		
+		ruleset: ['Standard NatDex', 'Adjust Level = 100', 'Picked Team Size = 4', "monochrome"],
+		
+	},
+	
+	{
+		name: "[Gen 8] Lv100 Custom Game Doubles",
+
+		gameType: 'doubles',
+		searchShow: false,
+		mod: "gen8",
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Adjust Level = 100'],
+		
+	},
+	{
+		name: "[Gen 8] Lv100 Custom Game",
+
+		mod: 'gen8',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Adjust Level = 100'],
+	},
+
+
+
 	// Sw/Sh Singles
 	///////////////////////////////////////////////////////////////////
 

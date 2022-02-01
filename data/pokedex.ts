@@ -5020,7 +5020,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 4,
 		color: "Brown",
-		evos: ["Nuzleaf"],
+		evos: ["Nuzleaf", "Popcorn"],
 		eggGroups: ["Field", "Grass"],
 	},
 	nuzleaf: {

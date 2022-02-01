@@ -32,30 +32,31 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		mod: "gen8",
 		
-		ruleset: ['Standard NatDex', 'Adjust Level = 100', 'Picked Team Size = 4', "monochrome"],
+		ruleset: ['Standard NatDex', 'Adjust Level = 50', 'Picked Team Size = 4', "monochrome"],
 		
 	},
 	
 	{
-		name: "[Gen 8] Lv100 Custom Game Doubles",
-
+		name: "[Gen 8] Lv50 Custom Game Doubles",
+		
+		mod: 'gen8',
 		gameType: 'doubles',
 		searchShow: false,
 		mod: "gen8",
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Adjust Level = 100'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Adjust Level = 50'],
 		
 	},
 	{
-		name: "[Gen 8] Lv100 Custom Game",
+		name: "[Gen 8] Lv50 Custom Game",
 
 		mod: 'gen8',
 		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Adjust Level = 100'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Adjust Level = 50'],
 	},
 
 

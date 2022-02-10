@@ -24,7 +24,7 @@ export const Formats: FormatList = [
 
 
 	{
-		section: "BudewInn Custom Formate",
+		section: "BudewInn Custom Formats",
 	},
 	
 	{
@@ -36,7 +36,7 @@ export const Formats: FormatList = [
 		mod: 'gen8',
 		gameType: 'doubles',
 		ruleset: [
-			'Exact HP Mod', 'Obtainableperfinta', 'Team Preview', "Dynamax Clause", "leggendari", "misteriosi" ,'Adjust Level = 50', 'Picked Team Size = 4'
+			'HP Percentage Mod', 'Obtainableperfinta', 'Team Preview', "Dynamax Clause", "NoLeggendari!", "NoMisteriosi!" ,'Adjust Level = 50', 'Picked Team Size = 4'
 		],
 		unbanlist: ["Leppa Berry",
 		],

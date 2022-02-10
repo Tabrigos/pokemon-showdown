@@ -35,6 +35,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 			'NoLeggendari!', 'NoMisteriosi!', '+Past', 'Obtainable',
 		],
 		unbanlist: ['Leppa Berry'],
+		banlist: ['CAP', 'Mythical', 'Restricted Legendary']
 	},
 	
 		

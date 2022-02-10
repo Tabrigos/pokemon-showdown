@@ -25,8 +25,19 @@ export const Rulesets: {[k: string]: FormatData} = {
 			"leggendari", "misteriosi"
 		],
 	},
-
 	
+	
+	metronomo: {
+		effectType: 'ValidatorRule',
+		name: "Metronomo-Base",
+		desc: "Regole usate nella Metronome Cup",
+		ruleset: [
+			'NoLeggendari!', 'NoMisteriosi!', '+Past', 'Obtainable',
+		],
+		unbanlist: ['Leppa Berry'],
+	},
+	
+		
 	leggendari: {
 		effectType: 'ValidatorRule',
 		name: "NoLeggendari!",

@@ -24,7 +24,7 @@ export const Formats: FormatList = [
 
 
 	{
-		section: "BudewInn Custom Formats",
+		section: "BudewInn Custom Formate",
 	},
 	
 	{

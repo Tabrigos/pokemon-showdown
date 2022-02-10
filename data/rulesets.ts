@@ -191,7 +191,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 
 	obtainableperfinta: {
 		effectType: 'ValidatorRule',
-		name: 'Obtainable',
+		name: 'Obtainableperfinta',
 		desc: "Makes sure the team is possible to obtain in-game.",
 		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'Obtainable Misc'],
 		banlist: ['Unreleased', 'Unobtainable', 'Nonexistent'],

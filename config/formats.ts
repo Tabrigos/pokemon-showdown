@@ -36,7 +36,7 @@ export const Formats: FormatList = [
 		mod: 'gen8',
 		gameType: 'doubles',
 		ruleset: [
-			'HP Percentage Mod', 'Obtainable', 'Team Preview', "Dynamax Clause", "NoLeggendari!", "NoMisteriosi!" ,'Adjust Level = 50', 'Picked Team Size = 4'
+			'HP Percentage Mod', 'Obtainable', 'Team Preview', "Dynamax Clause", "NoLeggendari!", "NoMisteriosi!" ,'Adjust Level = 50', 'Picked Team Size = 4', 'Metronomo-Base'
 		],
 		unbanlist: ["Leppa Berry",
 		],

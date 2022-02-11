@@ -28,15 +28,13 @@ export const Formats: FormatList = [
 	},
 	
 	{
-		name: '[Gen 8] Metronome Battle',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3632075/">Metronome Battle</a>`,
-		],
+		name: '[Gen 8] Coppa Metronomo',
+
 
 		mod: 'gen8',
 		gameType: 'doubles',
 		ruleset: [
-			'HP Percentage Mod', 'Obtainable', 'Team Preview', "Dynamax Clause", "NoLeggendari!", "NoMisteriosi!" ,'Adjust Level = 50', 'Picked Team Size = 4', 'Metronomo-Base'
+			'Standard NatDex Exact Hp', "Dynamax Clause", "leggendari", "misteriosi" ,'Adjust Level = 50', 'Picked Team Size = 4'
 		],
 		unbanlist: ["Leppa Berry",
 		],

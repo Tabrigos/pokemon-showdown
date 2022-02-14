@@ -28,6 +28,24 @@ export const Formats: FormatList = [
 	},
 	
 	{
+		name: "[Gen 8] Lega di Galar 02/22",		
+		mod: "gen8",
+		ruleset: ['Standard NatDex',"leggendari", "misteriosi",'Item Clause'],
+		restricted: ["Barraskewda", "Bisharp", "Blissey", "Cinderace", "Clefable", "Corviknight", "Darmanitan-Galar",  "Dracovish", "Dragapult", "Dragonite", "Ferrothorn", "Garchomp", "Hippowdon", "Magnezone", "Ninetales-Alola", "Pelipper", "Rillaboom", "Scizor", "Slowbro", "Slowking-galar", "Toxapex", "Tyranitar", "Volcarona", "Weavile"],
+		onValidateTeam(team) {
+			const restrictedSpecies = [];
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
+			}
+			if (restrictedSpecies.length > 1) {
+				return [`Stai usando più di un Pok\u00E9mon limitato (Tu stai usando: ${restrictedSpecies.join(', ')})`];
+			}
+		},		
+	},
+		
+	
+	{
 		name: '[Gen 8] Coppa Metronomo',
 
 

@@ -670,8 +670,9 @@ export const Rulesets: {[k: string]: FormatData} = {
 				if (!item) continue;
 				if (itemTable.has(item)) {
 					return [
-						`You are limited to one of each item by Item Clause.`,
-						`(You have more than one ${this.dex.items.get(item).name})`,
+						`Puoi utilizzare solo uno di ogni oggetto.`,
+						`(Hai più di un: ${this.dex.items.get(item).name})
+						`,
 					];
 				}
 				itemTable.add(item);

@@ -5020,7 +5020,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 4,
 		color: "Brown",
-		evos: ["Nuzleaf", "Popcorn"],
+		evos: ["Nuzleaf"],
 		eggGroups: ["Field", "Grass"],
 	},
 	nuzleaf: {
@@ -5035,6 +5035,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Seedot",
 		evoLevel: 14,
 		evos: ["Shiftry"],
+        cosmeticFormes: ["Nuzleaf-Popcorn"],
+        formeOrder: ["Nuzleaf", "Nuzleaf-Popcorn"],	
 		eggGroups: ["Field", "Grass"],
 	},
 	shiftry: {
@@ -14197,7 +14199,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 44.5,
 		color: "Yellow",
 		tags: ["Mythical"],
-		eggGroups: ["Undiscovered"],
+		eggGroups: ["Undiscovered"],		
 	},
 	meltan: {
 		num: 808,
@@ -15977,20 +15979,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Calyrex",
-	},
-	popcorn: {
-		num: 899,
-		name: "Popcorn",
-		types: ["Grass", "Dark"],
-		baseStats: {hp: 70, atk: 70, def: 40, spa: 60, spd: 40, spe: 60},
-		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Pickpocket"},
-		heightm: 1,
-		weightkg: 28,
-		color: "Brown",
-		prevo: "Seedot",
-		evoLevel: 14,
-		evos: ["Shiftry"],
-		eggGroups: ["Field", "Grass"],
 	},
 	missingno: {
 		num: 0,

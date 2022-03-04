@@ -1298,6 +1298,8 @@ export const Aliases: {[alias: string]: string} = {
 	runpappa: "Ludicolo",
 	taneboo: "Seedot",
 	konohana: "Nuzleaf",
+	nuzleafpopcorn: "Nuzleaf",
+	popcorn: "Nuzleaf",
 	daatengu: "Shiftry",
 	subame: "Taillow",
 	oosubame: "Swellow",

@@ -540,8 +540,16 @@ const OFFICIAL_AVATARS_GNOMOWLADNY = new Set([
 	'valerie', 'viola', 'wallace-gen6', 'wikstrom', 'winona-gen6', 'wulfric', 'xerosic', 'youngn', 'zinnia',
 ]);
 
+const BUDEWINN_AVATAR = new Set ([
+	"mako",
+	
+	
+]);
+
+
 for (const avatar of OFFICIAL_AVATARS_BELIOT419) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_GNOMOWLADNY) OFFICIAL_AVATARS.add(avatar);
+for (const avatar of BUDEWINN_AVATAR) OFFICIAL_AVATARS.add(avatar);
 
 export const commands: Chat.ChatCommands = {
 	avatar(target, room, user) {
@@ -560,10 +568,10 @@ export const commands: Chat.ChatCommands = {
 			Avatars.setDefault(user.id, avatar);
 		}
 		if (!silent) {
-			this.sendReply(
-				`${this.tr`Avatar changed to:`}\n` +
-				Chat.html`|raw|${Avatars.img(avatar)}`
-			);
+			//this.sendReply(
+			//	`${this.tr`Avatar changed to:`}\n` +
+			//	Chat.html`|raw|${Avatars.img(avatar)}`
+			//);
 			if (OFFICIAL_AVATARS_BELIOT419.has(avatar)) {
 				this.sendReply(`|raw|(${this.tr`Artist: `}<a href="https://www.deviantart.com/beliot419">Beliot419</a>)`);
 			}

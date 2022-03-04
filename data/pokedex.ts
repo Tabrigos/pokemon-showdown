@@ -1,4 +1,44 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
+	missingkabutops: {
+		num: 141,
+		name: "MissingKabutops",
+		types: ["Missing"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120},
+		abilities: {0: "Wonder Guard"},
+		heightm: 1.3,
+		weightkg: 40.5,
+		color: "Brown",
+		eggGroups: ["Water 1", "Water 3"],
+	},
+	missingaerodactyl: {
+		num: 142,
+		name: "MissingAerodactyl",
+		types: ["Missing"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120},
+		abilities: {0: "Wonder Guard"},
+		heightm: 1.8,
+		weightkg: 59,
+		color: "Purple",
+		eggGroups: ["Flying"],
+	},
+	akclefable: {
+		num: 36,
+		name: "AkClefable",
+		types: ["Missing"],
+		genderRatio: {M: 0.25, F: 0.75},
+		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
+		abilities: {0: "Cute Charm", 1: "Magic Guard", H: "Unaware"},
+		heightm: 1.3,
+		weightkg: 40,
+		color: "Pink",
+		eggGroups: ["Fairy"],
+	},	
+
+
+
+
 	bulbasaur: {
 		num: 1,
 		name: "Bulbasaur",
